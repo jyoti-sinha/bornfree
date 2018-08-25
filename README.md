@@ -1,4 +1,4 @@
-# bornfree
+# Bornfree
 
 This repository will be included with code related files
 
