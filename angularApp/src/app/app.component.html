@@ -1,2 +1,7 @@
+<form action="">
+    <label for="seat_{{item._id}}" *ngFor="let item of seats" style="display:block">
+      <input type="checkbox" id="seat_{{item._id}}"> Seat number {{item._id}} ({{item.F_seat ? 'F' : 'M'}})
+    </label>
+</form>
 
 
