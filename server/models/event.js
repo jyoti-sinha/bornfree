@@ -6,4 +6,4 @@ const EventSchema = new Schema({
     date: Date
 });
 
-module.exports = mongoose.model('event', EventSchema, 'events');
+module.exports = mongoose.model('event', EventSchema, 'events'); //'model name', Schema name, 'collection name'
