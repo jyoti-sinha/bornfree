@@ -48,7 +48,7 @@ export class EventComponent {
   }
 
   getAllEvents() {
-    this.http.get<any>('http://localhost:3000/events/',{
+    this.http.get<any>('http://localhost:3000/api/events/',{
       headers: new HttpHeaders({
         'Authorization': sessionStorage.getItem('token')
       })
@@ -71,7 +71,7 @@ export class EventComponent {
   submit() {
     if(Object.keys(this.event).length > 0){
         //console.log(this.register)
-        this.http.post<any>('http://localhost:3000/addevent/', this.event, {
+        this.http.post<any>('http://localhost:3000/api/addevent/', this.event, {
           headers: new HttpHeaders({
             'Authorization': sessionStorage.getItem('token')
           })
@@ -94,7 +94,7 @@ export class EventComponent {
   update() {
     if(Object.keys(this.event).length > 0){
         //console.log(this.register)
-        this.http.put<any>('http://localhost:3000/updateevent/', this.event, {
+        this.http.put<any>('http://localhost:3000/api/updateevent/', this.event, {
           headers: new HttpHeaders({
             'Authorization': sessionStorage.getItem('token')
           })
@@ -120,7 +120,7 @@ export class EventComponent {
                 "_id" : id
               }
           };
-          this.http.delete<any>('http://localhost:3000/deleteevent/', options).subscribe(res => { 
+          this.http.delete<any>('http://localhost:3000/api/deleteevent/', options).subscribe(res => { 
             if(res.status == 200){
               this.getAllEvents();
             }else{            
