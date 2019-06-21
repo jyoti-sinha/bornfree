@@ -6,7 +6,9 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'event-app',
   template: `<form>
+  <p><small *ngIf="!(logState | async)">Logged in as {{user.email}}</small></p>
     <h3>Events</h3>
+    
     <p>
       <label for="name">
         <input type="text" id="name" placeholder="event name" name="name" [(ngModel)]="event.name" required>
@@ -43,6 +45,9 @@ export class EventComponent {
   event = {};
   updateButton:boolean = false;
   allEvents: Array<any> = [];
+  user = {
+    email: sessionStorage.getItem('email')
+  }
   constructor(private http: HttpClient){
     this.getAllEvents();
   }

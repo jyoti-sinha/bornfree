@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-
+import { Store } from '@ngrx/store';
+import { actionTrue, actionFalse } from '../state-strore/login.action';
 
 @Component({
   selector: 'login-app',
@@ -23,10 +24,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit{
   login = {};
-  constructor(private http: HttpClient, private router:Router){
-    // this.http.get<any>('http://localhost:3000/events/').subscribe(res => {  
-    //   console.log(res)
-    // })
+  logState:Observable<boolean>;
+  constructor(private http: HttpClient, private router:Router, private store: Store<any>){
   }
 
   ngOnInit() {
@@ -54,6 +53,8 @@ export class LoginComponent implements OnInit{
             sessionStorage.setItem('email', res.user.email);
             sessionStorage.setItem('token', res.token);
             this.router.navigate(['events']);
+
+            this.store.dispatch(actionFalse());
             alert('Successfully logged in :)'); 
           }else{            
             alert('Login failed :('); 
