@@ -30,7 +30,7 @@ import { Observable } from 'rxjs';
   </form>
   
   <ul>
-    <li *ngFor="let item of allEvents">
+    <li *ngFor="let item of allEvents" class="mb-3">
       <h4>{{item.name}}</h4>
       <p>{{item.description}}</p>
       <small>{{item.date}}</small>

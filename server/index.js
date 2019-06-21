@@ -38,7 +38,7 @@ app.post('/register', (req, res) => {
       return res.status(500).send(err);
     } else {
       let token = jwt.sign({ subject: user._id }, 'secretkey');
-      return res.status(200).send({ status: 200, token: token });
+      return res.status(200).send({ status: 200, registeredUser, token: token });
     }
   })
 })

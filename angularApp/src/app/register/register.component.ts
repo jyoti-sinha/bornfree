@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { actionFalse } from '../state-strore/login.action';
 
 
 @Component({
@@ -22,7 +25,7 @@ import { Observable } from 'rxjs';
 })
 export class RegisterComponent {
   register = {};
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient, private router:Router, private store: Store<any>){
   }
 
   submit() {
@@ -31,6 +34,12 @@ export class RegisterComponent {
         this.http.post<any>('http://localhost:3000/register/', this.register).subscribe(res => { 
           if(res.status == 200){
             this.register = {};
+            sessionStorage.setItem('userId', res.registeredUser._id);
+            sessionStorage.setItem('email', res.registeredUser.email);
+            sessionStorage.setItem('token', res.token);
+            this.router.navigate(['events']);
+
+            this.store.dispatch(actionFalse());
             alert('Successfully registered :)');
           }else{
             alert('Registeration failed :(');
