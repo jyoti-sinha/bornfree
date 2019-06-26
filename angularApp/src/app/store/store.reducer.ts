@@ -9,7 +9,7 @@ export function reducer(state = initialState, action) {
             return state = action.payload 
 
         default:
-            return state
+            return state 
     }    
 }
 

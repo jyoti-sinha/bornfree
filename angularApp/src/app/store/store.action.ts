@@ -7,7 +7,7 @@ export enum ActionLoginType {
 
 export class AppLogin implements Action {
     readonly type = ActionLoginType.APP_LOGIN;
-    constructor(private payload?: any){}
+    constructor(private payload?: any){} 
 }
 
 

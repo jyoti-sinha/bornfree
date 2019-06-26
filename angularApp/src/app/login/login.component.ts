@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit{
         //console.log(this.login)
         this.http.post<any>('http://localhost:3000/login/', this.login, {
           headers: new HttpHeaders({
-            "Access-Control-Allow-Origin" : "*",
+            "Access-Control-Allow-Origin" : "*", 
             "Access-Control-Allow-Headers" : "Origin, X-Requested-With, Content-Type, Accept",
             "Content-Type": "application/json"
           }) 

@@ -42,7 +42,7 @@ export class RegisterComponent {
             this.store.dispatch(new app.AppLogin(true));
             alert('Successfully registered :)');
           }else{
-            alert('Registeration failed :(');
+            alert('Registeration failed :('); 
           }
         })
     }

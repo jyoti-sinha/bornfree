@@ -17,7 +17,7 @@ import { Store, select } from '@ngrx/store';
       </div> 
       
       <a *ngIf="(logState | async)" href="javascript:void(0)" (click)="logout()">Logout</a>
-      
+       
     
     <hr>
   </div>` 
