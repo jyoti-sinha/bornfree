@@ -20,7 +20,7 @@ import * as app from '../store/store.action';
         <input type="password" id="pwd" placeholder="user password" name="password" [(ngModel)]="register.password" required>
       </label>
     </p>
-    <button (click)="submit()">Submit</button>
+    <button (click)="submit()">Submit</button> 
   </form>`
 })
 export class RegisterComponent {

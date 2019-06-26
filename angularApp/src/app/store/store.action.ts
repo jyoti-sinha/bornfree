@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 
 
 export enum ActionLoginType {
-    APP_LOGIN = 'APP_LOGIN'
+    APP_LOGIN = 'APP_LOGIN' 
 }
 
 export class AppLogin implements Action {

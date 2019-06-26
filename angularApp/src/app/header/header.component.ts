@@ -20,7 +20,7 @@ import { Store, select } from '@ngrx/store';
       
     
     <hr>
-  </div>`
+  </div>` 
 })
 export class HeaderComponent {
   logState:Observable<boolean>;

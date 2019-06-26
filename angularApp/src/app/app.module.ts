@@ -12,7 +12,7 @@ import { EventComponent } from './event/event.component';
 import { HeaderComponent } from './header/header.component';
 
 import { StoreModule } from '@ngrx/store';
-import { appReducer } from './store';
+import { appReducer } from './store'; 
 
 
 @NgModule({
