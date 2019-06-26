@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { actionTrue, actionFalse } from '../state-strore/login.action';
+import { Store, select } from '@ngrx/store';
+import * as app from '../store/store.action';
+
 
 @Component({
   selector: 'login-app',
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit{
   login = {};
   logState:Observable<boolean>;
   constructor(private http: HttpClient, private router:Router, private store: Store<any>){
+    this.logState = store.pipe(select('logState'));
   }
 
   ngOnInit() {
@@ -48,13 +50,12 @@ export class LoginComponent implements OnInit{
         }).subscribe(res => { 
           if(res.status == 200){
             this.login = {};
-            console.log(res)
             sessionStorage.setItem('userId', res.user._id);
             sessionStorage.setItem('email', res.user.email);
             sessionStorage.setItem('token', res.token);
             this.router.navigate(['events']);
 
-            this.store.dispatch(actionFalse());
+            this.store.dispatch(new app.AppLogin(true));
             alert('Successfully logged in :)'); 
           }else{            
             alert('Login failed :('); 

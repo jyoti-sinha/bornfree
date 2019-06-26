@@ -58,7 +58,6 @@ export class EventComponent {
         'Authorization': sessionStorage.getItem('token')
       })
     }).subscribe(res => {  
-      console.log(res)
       this.allEvents = res; 
     })
   }

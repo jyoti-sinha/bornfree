@@ -12,7 +12,8 @@ import { EventComponent } from './event/event.component';
 import { HeaderComponent } from './header/header.component';
 
 import { StoreModule } from '@ngrx/store';
-import { loginReducer } from './state-strore/login.reducer';
+import { appReducer } from './store';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { loginReducer } from './state-strore/login.reducer';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    StoreModule.forRoot({logState:loginReducer})
+    StoreModule.forRoot(appReducer)
   ],
   providers: [],
   bootstrap: [AppComponent]

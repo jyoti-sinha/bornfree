@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { actionFalse } from '../state-strore/login.action';
+import * as app from '../store/store.action';
 
 
 @Component({
@@ -39,7 +39,7 @@ export class RegisterComponent {
             sessionStorage.setItem('token', res.token);
             this.router.navigate(['events']);
 
-            this.store.dispatch(actionFalse());
+            this.store.dispatch(new app.AppLogin(true));
             alert('Successfully registered :)');
           }else{
             alert('Registeration failed :(');
